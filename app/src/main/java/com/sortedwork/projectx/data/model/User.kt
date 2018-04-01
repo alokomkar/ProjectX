@@ -1,4 +1,4 @@
-package com.sortedwork.projectx.base.model
+package com.sortedwork.projectx.data.model
 
 import android.os.Parcel
 import android.os.Parcelable
@@ -6,51 +6,53 @@ import android.os.Parcelable
 /**
  * Created by Alok Omkar on 2018-03-31.
  */
-class Role(
+class User(
         var userId: String = "",
-        var roleId : String = "",
-        var permissions: Int = 0
+        var firstName: String = "",
+        var lastName: String = "",
+        var userPhoto: String = "",
+        var userEmail: String = ""
 ) : Parcelable {
     constructor(source: Parcel) : this(
             source.readString(),
             source.readString(),
-            source.readInt()
+            source.readString(),
+            source.readString(),
+            source.readString()
     )
 
     override fun describeContents() = 0
 
     override fun writeToParcel(dest: Parcel, flags: Int) = with(dest) {
         writeString(userId)
-        writeString(roleId)
-        writeInt(permissions)
+        writeString(firstName)
+        writeString(lastName)
+        writeString(userPhoto)
+        writeString(userEmail)
     }
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (javaClass != other?.javaClass) return false
 
-        other as Role
+        other as User
 
         if (userId != other.userId) return false
-        if (roleId != other.roleId) return false
 
         return true
     }
 
     override fun hashCode(): Int {
-        var result = userId.hashCode()
-        result = 31 * result + roleId.hashCode()
-        return result
+        return userId.hashCode()
     }
 
     companion object {
         @JvmField
-        val CREATOR: Parcelable.Creator<Role> = object : Parcelable.Creator<Role> {
-            override fun createFromParcel(source: Parcel): Role = Role(source)
-            override fun newArray(size: Int): Array<Role?> = arrayOfNulls(size)
+        val CREATOR: Parcelable.Creator<User> = object : Parcelable.Creator<User> {
+            override fun createFromParcel(source: Parcel): User = User(source)
+            override fun newArray(size: Int): Array<User?> = arrayOfNulls(size)
         }
     }
-
 
 
 }

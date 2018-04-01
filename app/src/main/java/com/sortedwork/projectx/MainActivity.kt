@@ -7,11 +7,11 @@ import com.sortedwork.projectx.base.NavigationView
 class MainActivity : AppCompatActivity(), NavigationView {
 
     override fun navigateToSplash() {
-
+        navigateToAuth()
     }
 
     override fun navigateToAuth() {
-
+        navigateToOnBoarding()
     }
 
     override fun navigateToOnBoarding() {

@@ -1,4 +1,4 @@
-package com.sortedwork.projectx.base.model
+package com.sortedwork.projectx.data.model
 
 import android.os.Parcel
 import android.os.Parcelable
